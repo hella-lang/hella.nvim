@@ -1,0 +1,69 @@
+// Example Hella program exercising the syntax-highlighted constructs.
+// See references/ebnf-0.1.txt (Draft 0.1).
+
+import std::io
+
+// Attributes
+@deprecated("use fast_fib instead")
+int fib(int n)
+    if n < 2 do
+        return n
+    end
+    return fib(n - 1) + fib(n - 2)
+end
+
+int fast_fib(int n)
+    int a = 0
+    int b = 1
+    for i in 0..n do
+        int tmp = a + b
+        a = b
+        b = tmp
+    end
+    return a
+end
+
+const double PI = 3.14159
+const int MAX = 0x7F
+const int FLAGS = 0b1010
+
+struct Point has
+    public double x = 0.0
+    public double y = 0.0
+end
+
+enum Color has
+    Red
+    Green
+    Blue = 2
+end
+
+void main()
+    string name = "world"
+    string greeting = "hello, {name}!"
+    char nl = '\n'
+    double ratio = .5e1
+    int count = 1_000_000
+
+    Point p = Point has
+        x = 1.5
+        y = 2.5
+    end
+
+    match ratio do
+        .5e1 -> print("half")
+        is 5.0 -> print("five")
+        else -> print("other")
+    end
+
+    while count > 0 do
+        count -= 1
+        if count is 0 do
+            break
+        end
+    end
+
+    defer print("cleanup")
+    assert name != ""
+    debug_assert MAX > 0
+end
