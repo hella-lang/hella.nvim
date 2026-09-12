@@ -9,21 +9,26 @@ Provides:
 - **LSP integration** — connects to the Hella language server (`hella lsp`)
   for diagnostics, hover, goto-definition, completions, and document symbols.
 - **Formatting** — runs the canonical formatter (`hella fmt`) on the
-  current buffer, plus optional format-on-save.
+  current buffer, with format-on-save enabled by default.
 - **Auto-close blocks** — pressing Enter below a line ending in `do` or
   `has` inserts the matching `end` (endwise-style, no dependencies).
 
-> Renamed from `holt.nvim`: the module is now `hella`, the filetype is
+> Previously `holt.nvim`: the module is now `hella`, the filetype is
 > `hella`, highlight groups are `hella*`, and commands are `:HellaFormat` /
-> `:HellaFormatCheck`. Update your config accordingly (see Installation).
+> `:HellaFormatCheck`.
+
+## Requirements
+
+- Neovim 0.10 or newer.
+- The `hella` CLI on your PATH (provides the `lsp` and `fmt`
+  subcommands this plugin uses).
 
 ## Prerequisites
 
-The `hella` CLI must be installed and available on your PATH. It provides the
-`lsp` and `fmt` subcommands this plugin uses.
+Install the toolchain and its standard library:
 
 ```bash
-# From the hella workspace
+# From a checkout of the Hella toolchain repository
 cargo install --path crates/hella-cli
 hella setup   # install the standard library to ~/.hella/lib
 ```
@@ -41,7 +46,7 @@ hella fmt --help
 
 ```lua
 {
-  dir = "/Users/rivethorn/Dev/Hella/hella.nvim",
+  "hella-lang/hella.nvim",
   ft = { "hella" },
   config = function()
     require("hella").setup()
@@ -55,17 +60,17 @@ For LazyVim, put that in a file like `~/.config/nvim/lua/plugins/hella.lua`
 ### vim-plug
 
 ```vim
-Plug '/Users/rivethorn/Dev/Hella/hella.nvim'
+Plug 'hella-lang/hella.nvim'
 ```
 
 Then run `:PlugInstall`.
 
 ### Manual
 
-Drop the directory into your Neovim runtimepath, e.g.:
+Clone the repository somewhere on your runtimepath, e.g.:
 
-```vim
-set rtp+=/Users/rivethorn/Dev/Hella/hella.nvim
+```bash
+git clone https://github.com/hella-lang/hella.nvim ~/.config/nvim/pack/plugins/start/hella.nvim
 ```
 
 ## Usage
@@ -91,14 +96,14 @@ The default keymaps (buffer-local) are:
 ## Formatting
 
 The plugin formats via the canonical toolchain formatter
-(`hella fmt [paths...] [--check]`, see `hella/.opencode/skills/formatter/SKILL.md`):
+(`hella fmt [paths...] [--check]`):
 4-space indent, 100-column structural wrapping, expanded blocks, blank-line
 normalization, variable/field alignment, and class member categorization.
 Formatting is deterministic and idempotent.
 
 This intentionally goes through the CLI, not LSP: the language server does
-not advertise `documentFormattingProvider` (editor/LSP integration is a
-future extension in the formatter skill), so `vim.lsp.buf.format()` would be
+not advertise `documentFormattingProvider` (editor/LSP integration is still
+a planned extension of the formatter), so `vim.lsp.buf.format()` would be
 a no-op.
 
 Commands and API:
@@ -109,7 +114,7 @@ Commands and API:
 
 ## Configuration
 
-Call `require("hella").setup({ ... })` in your `init.lua` to override defaults:
+Call `require("hella").setup({ ... })` to override defaults:
 
 ```lua
 require("hella").setup({
@@ -233,10 +238,10 @@ Formatting is **not** an LSP feature: use `:HellaFormat` / `<leader>f`
 
 ## Development / Testing
 
-Run the syntax validation test from `/Users/rivethorn/Dev/Hella`:
+Run the syntax validation test from the plugin root:
 
 ```bash
-nvim -u NONE -S hella.nvim/test/hella_validate.lua
+nvim -u NONE -S test/hella_validate.lua
 ```
 
 This opens `examples/example.hlt` and checks that each highlighted construct

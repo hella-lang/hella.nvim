@@ -1,6 +1,9 @@
 -- Validates the Hella nvim syntax plugin against examples/example.hlt.
--- Adjust the rtp line to point at your hella.nvim directory.
-local rtp = vim.fn.getcwd() .. '/hella.nvim'
+-- Run from the plugin root: `nvim -u NONE -S test/hella_validate.lua`.
+-- The plugin directory is derived from this script's location, so the
+-- checkout may live anywhere.
+local src = debug.getinfo(1, 'S').source:sub(2)
+local rtp = vim.fn.fnamemodify(src, ':h:h')
 vim.cmd('set rtp+=' .. rtp)
 vim.cmd('filetype on')
 vim.cmd('syntax on')
