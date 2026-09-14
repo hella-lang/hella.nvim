@@ -39,7 +39,14 @@ enum Color has
 end
 
 void main()
-    string name = "world"
+    int arr[5] numbers = [1, 2, 3, 4, 5]
+    int vec values = vec[10, 20, 30]
+    own Point p = new Point has
+        x = 1.5
+        y = 2.5
+    end
+
+    string name = null
     string greeting = "hello, {name}!"
     char nl = '\n'
     double ratio = .5e1
@@ -64,6 +71,7 @@ void main()
     end
 
     defer print("cleanup")
-    assert name != ""
+    delete p
+    assert not (name == "")
     debug_assert MAX > 0
 end

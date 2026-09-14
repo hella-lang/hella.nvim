@@ -172,16 +172,16 @@ Available groups:
 
 | Group                 | Links to   | Highlights                          |
 |-----------------------|------------|-------------------------------------|
-| `hellaType`           | Type       | `int`, `bool`, `string`, `void`, … |
+| `hellaType`           | Type       | `int`, `bool`, `string`, `void`, `arr`, `vec`, `own`, … |
 | `hellaConditional`    | Conditional| `if`, `else`, `match`              |
 | `hellaRepeat`         | Repeat     | `while`, `loop`, `for`, `in`       |
-| `hellaStatement`      | Statement  | `return`, `break`, `assert`, …     |
-| `hellaStructure`      | Structure  | `class`, `struct`, `function`, …   |
+| `hellaStatement`      | Statement  | `return`, `break`, `assert`, `debug_assert`, `delete`, … |
+| `hellaStructure`      | Structure  | `class`, `struct`, `function`, `new`, … |
 | `hellaStorageClass`   | StorageClass| `public`, `private`, `static`, …  |
 | `hellaOperatorWord`   | Operator   | `and`, `or`, `not`, `is`           |
 | `hellaSelf`           | Keyword    | `this`, `super`, `Self`            |
 | `hellaKeyword`        | Keyword    | `from`, `to`                       |
-| `hellaBoolean`        | Boolean    | `true`, `false`                    |
+| `hellaBoolean`        | Boolean    | `true`, `false`, `null`            |
 | `hellaConstant`       | Constant   | `const` declarations               |
 | `hellaLineComment`    | Comment    | `// ...` comments                  |
 | `hellaBlockComment`   | Comment    | `/* ... */` comments               |

@@ -37,17 +37,17 @@ set cpo&vim
 " ---------------------------------------------------------------------------
 
 " Primitive types + `any` (EBNF sec.6)
-syn keyword hellaType any bool char double float int string void
+syn keyword hellaType any bool char double float int string void arr vec own
 
 " Control flow
 syn keyword hellaConditional if else match
 syn keyword hellaRepeat while loop for in
-syn keyword hellaStatement break continue return defer assert debug_assert
+syn keyword hellaStatement break continue return defer assert debug_assert delete
 
 " Declarations & structural delimiters
 syn keyword hellaStructure class struct trait enum function typedef distinct
       \ const import extern init operator convert extend has do end get set
-      \ initialize
+      \ initialize new
 
 " Visibility / storage / other modifiers
 syn keyword hellaStorageClass public private static sealed override open explicit
@@ -63,7 +63,7 @@ syn keyword hellaSelf this super Self
 syn keyword hellaKeyword from to
 
 " Literals (EBNF sec.4 / sec.8)
-syn keyword hellaBoolean true false
+syn keyword hellaBoolean true false null
 " ---------------------------------------------------------------------------
 " Operators (EBNF sec.5)  -- defined early so they lose to comments/
 " numbers/strings/attributes that are declared below (last-defined wins).
