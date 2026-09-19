@@ -1,6 +1,6 @@
 " ============================================================================
 " File:        syntax/hella.vim
-" Language:    Hella (Draft 0.1)
+" Language:    Hella (Draft 0.4)
 " Maintainer:  hella
 " Description: Syntax highlighting for the Hella programming language, based
 "              on references/ebnf-0.1.txt in the hella repository.
@@ -37,12 +37,13 @@ set cpo&vim
 " ---------------------------------------------------------------------------
 
 " Primitive types + `any` (EBNF sec.6)
-syn keyword hellaType any bool char double float int string void arr vec own
+syn keyword hellaType any bool char double float int string void arr vec own task
 
 " Control flow
 syn keyword hellaConditional if else match
 syn keyword hellaRepeat while loop for in
 syn keyword hellaStatement break continue return defer assert debug_assert delete
+      \ async await spawn scope yield
 
 " Declarations & structural delimiters
 syn keyword hellaStructure class struct trait enum function typedef distinct

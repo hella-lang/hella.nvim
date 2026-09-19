@@ -75,3 +75,12 @@ void main()
     assert not (name == "")
     debug_assert MAX > 0
 end
+
+int delayedValue(int value) async do
+    scope do
+        task<int> t = spawn delayedValue(value)
+        int got = await t
+        yield
+        return got
+    end
+end

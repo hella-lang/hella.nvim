@@ -58,6 +58,12 @@ local cases = {
   { 74,  'delete',    'hellaStatement' },
   { 75,  'assert',    'hellaStatement' },
   { 76,  'debug_assert', 'hellaStatement' },
+  { 79,  'async',     'hellaStatement' },
+  { 80,  'scope',     'hellaStatement' },
+  { 81,  'task',      'hellaType' },
+  { 81,  'spawn',     'hellaStatement' },
+  { 82,  'await',     'hellaStatement' },
+  { 83,  'yield',     'hellaStatement' },
 }
 
 local pass, fail = 0, 0
