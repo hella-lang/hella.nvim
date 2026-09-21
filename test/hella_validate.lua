@@ -64,6 +64,10 @@ local cases = {
   { 81,  'spawn',     'hellaStatement' },
   { 82,  'await',     'hellaStatement' },
   { 83,  'yield',     'hellaStatement' },
+  { 88,  'u8',        'hellaType' },
+  { 89,  'int',       'hellaType' },
+  { 89,  '&',         'hellaOperator' },
+  { 90,  '*',         'hellaOperator' },
 }
 
 local pass, fail = 0, 0

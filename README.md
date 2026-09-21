@@ -172,7 +172,7 @@ Available groups:
 
 | Group                 | Links to   | Highlights                          |
 |-----------------------|------------|-------------------------------------|
-| `hellaType`           | Type       | `int`, `bool`, `string`, `void`, `arr`, `vec`, `own`, … |
+| `hellaType`           | Type       | `int`, `bool`, `string`, `void`, `arr`, `vec`, `own`, `task`, sized ints (`i8`…`u128`, `uint`), … |
 | `hellaConditional`    | Conditional| `if`, `else`, `match`              |
 | `hellaRepeat`         | Repeat     | `while`, `loop`, `for`, `in`       |
 | `hellaStatement`      | Statement  | `return`, `break`, `assert`, `debug_assert`, `delete`, … |

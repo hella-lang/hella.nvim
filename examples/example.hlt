@@ -84,3 +84,7 @@ int delayedValue(int value) async do
         return got
     end
 end
+
+u8 byte = 255
+int* rawPtr = &byte
+int deref = *rawPtr

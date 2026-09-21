@@ -38,6 +38,7 @@ set cpo&vim
 
 " Primitive types + `any` (EBNF sec.6)
 syn keyword hellaType any bool char double float int string void arr vec own task
+syn keyword hellaType i8 i16 i32 i64 i128 u8 u16 u32 u64 u128 uint
 
 " Control flow
 syn keyword hellaConditional if else match
